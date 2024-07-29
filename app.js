@@ -48,9 +48,9 @@ pm2.Client.launchBus((err, bus) => {
     data = getLogData(log.data);
     if (typeof data === 'string'){
       if (data.length == 0) return;
-      gelflog.info(data, {application_name: log.process.name});
+      gelflog.info(data, {_application_name: log.process.name});
     } else {
-      data['application_name'] = log.process.name;
+      data['_application_name'] = log.process.name;
       gelflog.info(data.message, data);
     }
   });
@@ -60,9 +60,9 @@ pm2.Client.launchBus((err, bus) => {
     data = getLogData(log.data);
     if (typeof data === 'string'){
       if (data.length == 0) return;
-      gelflog.info(data, {application_name: log.process.name});
+      gelflog.info(data, {_application_name: log.process.name});
     } else {
-      data['application_name'] = log.process.name;
+      data['_application_name'] = log.process.name;
       gelflog.info(data.message, data);
     }
 

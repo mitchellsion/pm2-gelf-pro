@@ -28,7 +28,6 @@ if (conf.graylogFields) {
 }
 
 function getLogData(data) {
-  data=data.trim().replace(/\n/g, "\\\\n").replace(/\r/g, "\\\\r").replace(/\t/g, "\\\\t");
   try {
     json = JSON.parse(data);
     if (json.message.trim().length === 0) {

@@ -59,10 +59,10 @@ pm2.Client.launchBus((err, bus) => {
     data = getLogData(log.data);
     if (typeof data === 'string'){
       if (data.length == 0) return;
-      gelflog.info(data, {_application_name: log.process.name});
+      gelflog.error(data, {_application_name: log.process.name});
     } else {
       data['_application_name'] = log.process.name;
-      gelflog.info(data.message, data);
+      gelflog.error(data.message, data);
     }
 
   });
